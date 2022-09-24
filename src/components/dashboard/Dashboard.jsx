@@ -11,9 +11,13 @@ import "../dashboard/DashboardStyle.css";
 		<div className="grid overflow-hidden grid-lines grid-cols-5 auto-rows-auto gap-2 mt-12 mx-12">
 			<div className="box row-start-1 row-end-1">
 				Genero
-				<BsGenderFemale className="bg-blue-600 text-white "/>
-				<BsGenderMale className="bg-fuchsia-500 text-white "/>
-
+				<div className="absolute inset-y-0 left-0 m-3">
+					<BsGenderFemale className="bg-transparent text-white  text-5xl align-middle"/>
+				</div>
+				<div className="absolute inset-y-0 right-0 m-3">
+					<BsGenderFemale className="bg-transparent text-white text-5xl align-middle"/>
+				</div>
+				
 				</div>
 
 			<div className="box row-start-1 row-end-1">Estado Civil</div>

@@ -3,7 +3,8 @@
 		w-auto
 		h-24
 		min-h-full
-		
+		drop-shadow-md
+		rounded
 		bg-slate-400;
 }
 .kpi-icon{
