@@ -15,7 +15,7 @@ import "../dashboard/DashboardStyle.css";
 					<BsGenderFemale className="bg-transparent text-white  text-5xl align-middle"/>
 				</div>
 				<div className="absolute inset-y-0 right-0 m-3">
-					<BsGenderFemale className="bg-transparent text-white text-5xl align-middle"/>
+					<BsGenderMale className="bg-transparent text-white text-5xl align-middle"/>
 				</div>
 				
 				</div>
