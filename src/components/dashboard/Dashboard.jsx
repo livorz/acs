@@ -1,24 +1,19 @@
 import React,{Fragment, useState, useEffect} from "react"; 
 import { BsGenderFemale, BsGenderMale } from "react-icons/bs";
+import {Chart as ChartJS,
+    CategoryScale, LinearScale, PointElement, Filler, LineElement, BarElement, Title, Tooltip, Legend, ArcElement
+} from 'chart.js';
 //Components
 import StudentInfo from "./StudentInfo";
+import TSUProm from "./TSUProm";
+//Data
+import {UserData} from "./Data";
 //Styles
 import "../dashboard/DashboardStyle.css";
-import {UserData} from "./Data";
-import TSUProm from "../dashboard/TSUProm";
-    
-
-		function Dashboard2(){
-			const [UserData, setUserData] = useState({
-				labels: UserData.map((data) => data.year),
-				datasets: [{
-					label: "Promedio TSU",
-					data: UserData.map((data) => data.userGain),
-				}]
-		})
 
 
-
+	const Dashboard = () => {
+		
 
     return(
 		<div className="grid overflow-hidden grid-lines grid-cols-5 auto-rows-auto gap-2 mt-12 mx-12">
@@ -42,9 +37,9 @@ import TSUProm from "../dashboard/TSUProm";
 			<div className="box row-start-1 row-end-1">Trabaja</div>
 			<div className="box row-start-1 row-end-1">Promedio TSU
 			
-			<div className="Dashboard2">
-				<BarChart chartData={UserData}/>
-			</div>
+
+				<TSUProm/>
+
 
 			</div>
 			<div className="box row-start-1 row-end-1 col-end-auto">Promedio Ing</div>
@@ -56,6 +51,7 @@ import TSUProm from "../dashboard/TSUProm";
 
 
 }
+
 
 
 export default Dashboard;

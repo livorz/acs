@@ -1,11 +1,12 @@
-import React, { Fragment, useState, useEffect } from "react";
-import { Bar } from "react-chartjs-2";
-import {Chart as ChartJS} from 'chart.js/auto';
-import {UserData} from "./Data";
+import React  from 'react';
+import { Bar } from 'react-chartjs-2';
 
+const TSUProm = () => {
 
-function TSUProm({chartData}) {
-    return <Bar data={chartData}/>;
+    const BarChartData = {
+        labels: ["alumno1", "alumno2", "alumno3", "alumno4"],
+        datasets: [{
+            data: 
+        }]
+    }
 }
-
-export default TSUProm;
