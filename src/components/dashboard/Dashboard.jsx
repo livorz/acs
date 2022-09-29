@@ -5,7 +5,7 @@ import {Chart as ChartJS,
 } from 'chart.js';
 //Components
 import StudentInfo from "./StudentInfo";
-import TSUProm from "./TSUProm";
+import TSUPromChart from "./TSUProm";
 //Data
 import {UserData} from "./Data";
 //Styles
@@ -37,9 +37,9 @@ import "../dashboard/DashboardStyle.css";
 			<div className="box row-start-1 row-end-1">Trabaja</div>
 			<div className="box row-start-1 row-end-1">Promedio TSU
 			
-
-				<TSUProm/>
-
+			<div>
+				<TSUPromChart/>
+			</div>
 
 			</div>
 			<div className="box row-start-1 row-end-1 col-end-auto">Promedio Ing</div>
