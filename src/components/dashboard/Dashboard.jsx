@@ -6,6 +6,7 @@ import {Chart as ChartJS,
 //Components
 import StudentInfo from "./StudentInfo";
 import TSUPromChart from "./TSUProm";
+import HighschoolsChart from "./Highschools";
 //Data
 import {UserData} from "./Data";
 //Styles
@@ -45,7 +46,11 @@ import "../dashboard/DashboardStyle.css";
 			<div className="box row-start-1 row-end-1 col-end-auto">Promedio Ing</div>
 			<div className="box row-start-2 row-end-4 col-start-1 col-end-4">Vive con & Ingresos Familiares</div>
 			<div className="box row-start-2 row-end-6 col-start-4 col-end-6">Trabajo Razon & Trabajo Relacionado</div>
-			<div className="box row-start-4 row-end-6 col-start-1 col-end-4">Bachilleratos</div>
+			<div className="box row-start-4 row-end-6 col-start-1 col-end-4">Bachilleratos
+			
+				<HighschoolsChart/> 
+
+			</div>
 		</div>
     );
 
