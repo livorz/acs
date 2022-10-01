@@ -1,25 +1,20 @@
-import React from 'react';
+import { Line } from 'react-chartjs-2';
 import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js';
-import { Bar } from 'react-chartjs-2';
+    Chart as ChartJS,
+    LinearScale,
+    CategoryScale,
+    PointElement,
+    LineElement,
+  } from 'chart.js';
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
-);
+  ChartJS.register(
+    LineElement,
+    CategoryScale,
+    LinearScale,
+    PointElement,
+  )
 
-  function HighschoolsChart () {
+  function LivesWithFamIncome () {
     const data = {
         labels: ["May 12", "May 13", "May 14", "May 15"],
         datasets: [{
@@ -58,4 +53,4 @@ ChartJS.register(
         );
   }
 
-  export default HighschoolsChart;
+  export default LivesWithFamIncome;

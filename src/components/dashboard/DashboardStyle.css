@@ -1,21 +1,44 @@
 .box {
 	@apply
 		w-auto
-		h-24
+		h-20
 		min-h-full
 		drop-shadow-md
 		rounded
-		bg-slate-100;
+		bg-white;
 }
-.kpi-icon{
-
+.box-w-chart {
+	@apply
+		w-auto
+		h-64
+		min-h-full
+		drop-shadow-md
+		rounded
+		bg-white;
+}
+.Main-Grid{
+	@apply
+		grid 
+		overflow-hidden
+		grid-cols-5 
+		auto-rows-auto 
+		gap-2 
+		mt-12 
+		mx-12  
+		bg-slate-100
+}
+.KPI-Icon{
+	@apply
+		bg-transparent
+		text-slate-100 
+		align-middle
 }
 .KPI{
 	@apply
 		absolute 
 		inset-y-0 
 		left-0 
-		p-6
+		p-4
 		rounded-r-full
 }
 .KPI-Text{
@@ -23,6 +46,16 @@
 		row-start-1 
 		row-end-1 
 		text-right 
-		text-2xl
+		text-xl
 		pr-2
 }
+.KPI-Reading{
+	@apply
+		text-right
+		mr-6
+		text-4xl
+		font-semibold;
+}
+
+
+
