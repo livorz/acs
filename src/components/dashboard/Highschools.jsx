@@ -58,7 +58,7 @@ ChartJS.register(
           }
         };
         return(
-            <div className = "Income-Chart">
+            <div className = "Highschools-Chart">
                 <Bar data={data} options={options}/>  
             </div>
         );

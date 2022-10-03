@@ -58,7 +58,7 @@ ChartJS.register(
           }
         };
         return(
-            <div className = "Income-Chart">
+            <div className = "RelatedWork-Chart">
                 <PolarArea data={data} options={options}/>  
             </div>
         );

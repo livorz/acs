@@ -56,7 +56,7 @@
           }
         };
         return(
-            <div className = "Income-Chart">
+            <div className = "LivesWith-Chart">
                 <Line data={data} options={options}/>  
             </div>
         );

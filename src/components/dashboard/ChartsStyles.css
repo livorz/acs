@@ -1,22 +1,33 @@
-.Income-Chart{
+.WorkReason-Chart{
     @apply
-        h-2/6
+        h-52
+        w-72
+        relative
+}
+.RelatedWork-Chart{
+    @apply
+        h-52
+        w-72
+        relative
+}
+.LivesWith-Chart{
+    @apply
+        h-4/6
         w-full
         relative
-        mt-12
+        mt-4
 }
-.WorkReason{
-
+.Family-Income-Chart{
+    @apply
+        h-4/6
+        w-full
+        relative
+        mt-4
 }
-.RelatedWork{
-    
-}
-.LivesWith{
-
-}
-.FamilyIncome{
-
-}
-.Highschools{
-
+.Highschools-Chart{
+    @apply
+        h-4/6
+        w-full
+        relative
+        mt-4
 }

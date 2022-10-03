@@ -113,17 +113,26 @@ import "../dashboard/DashboardStyle.css";
 				</div>
 				</div>
 
-				<div className="box-w-chart row-span-2 col-start-1 col-span-2">
-						Con quien Vive
+				<div className="box-w-chart Lives-With">
+						<div className="Lives-With-Text">
+							Con quien Vive
+						</div>
 						<LivesWith/>
 				</div>
-				<div className="box-w-chart row-span-4">
-						Razson de Trabajo & Trabajo Relacionado
+				<div className="box-w-chart Reason-Related-Work">
+						<div>
+						Razson de Trabajo 
 						<WorkReason/>
+						</div>
+						<div>
+						Trabajo Relacionado
 						<RelatedWork/>
+						</div>
 				</div>
-				<div className="box-w-chart row-span-2 col-span-2">
+				<div className="box-w-chart Family-Income">
+						<div className="Family-Income-Text">
 						Ingresos Familiares
+						</div>
 						<FamilyIncome/>
 					</div>
 				<div className="box-w-chart row-span-2 col-span-3">
