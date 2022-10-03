@@ -1,29 +1,26 @@
-import React from 'react';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js';
-import { Bar } from 'react-chartjs-2';
 
-//style for charts
-import "../dashboard/ChartsStyles.css"
+  import "../dashboard/DashboardStyle.css";
+  import { Line } from 'react-chartjs-2';
+  import {
+      Chart as ChartJS,
+      LinearScale,
+      CategoryScale,
+      PointElement,
+      LineElement,
+    } from 'chart.js';
+    
+  //style for charts
+  import "../dashboard/ChartsStyles.css"
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
-);
+  ChartJS.register(
+    LineElement,
+    CategoryScale,
+    LinearScale,
+    PointElement,
+  )
+ 
 
-
-  function HighschoolsChart () {
+  function FamilyIncome () {
     const data = {
         labels: ["May 12", "May 13", "May 14", "May 15"],
         datasets: [{
@@ -33,6 +30,7 @@ ChartJS.register(
           pointBordercolor: 'cyan',
           pointBorderWith: 4,
           tension: 0.5,
+          
         }]
       };
         const options = {
@@ -59,9 +57,9 @@ ChartJS.register(
         };
         return(
             <div className = "Income-Chart">
-                <Bar data={data} options={options}/>  
+                <Line data={data} options={options}/>  
             </div>
         );
   }
 
-  export default HighschoolsChart;
+  export default FamilyIncome;

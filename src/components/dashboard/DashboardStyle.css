@@ -1,12 +1,19 @@
-.box {
+.Main-Container{
 	@apply
-		w-auto
-		h-20
-		min-h-full
-		drop-shadow-md
-		rounded
-		bg-white;
+		h-full 
+		bg-slate-100
+		grid 
+		 
+		grid-cols-3 
+		auto-rows-auto 
+		gap-64 
+		gap-x-4 
+		gap-y-12 
+		grid-flow-row 
+		w-full
+		p-12
 }
+
 .box-w-chart {
 	@apply
 		w-auto
@@ -18,44 +25,80 @@
 }
 .Main-Grid{
 	@apply
-		grid 
-		overflow-hidden
-		grid-cols-5 
-		auto-rows-auto 
-		gap-2 
-		mt-12 
-		mx-12  
-		bg-slate-100
+	grid 
+	overflow-hidden 
+	grid-cols-3 
+	auto-rows-auto 
+	gap-64 
+	gap-x-4 
+	gap-y-12 
+	grid-flow-row 
+	w-full 
 }
-.KPI-Icon{
+
+
+.Main-Grid{
 	@apply
-		bg-transparent
-		text-slate-100 
-		align-middle
+	w-full
+		
+		min-h-full
+		drop-shadow-md
+		rounded
+		bg-white
+		col-start-1 
+		col-span-3 
+		h-screen;
+}
+	
+
+
+
+/* KPI */
+.box {
+	@apply
+		w-full
+		h-24
+		min-h-full
+		drop-shadow-md
+		rounded
+		;
 }
 .KPI{
 	@apply
 		absolute 
 		inset-y-0 
 		left-0 
-		p-4
+		pr-1
 		rounded-r-full
-}
-.KPI-Text{
-	@apply
-		row-start-1 
-		row-end-1 
-		text-right 
-		text-xl
-		pr-2
 }
 .KPI-Reading{
 	@apply
 		text-right
-		mr-6
+		mr-2
 		text-4xl
 		font-semibold;
 }
-
-
-
+.KPI-Text{
+	@apply
+		text-right 
+		text-xl
+		pr-4
+		mr-4
+}
+.KPI-Icon{
+	@apply
+		bg-transparent
+		text-slate-600 
+		align-middle
+		text-5xl 
+		mt-1
+		p-5
+		absolute
+}
+.item {
+	@apply
+		flex
+		w-72
+		h-auto
+		bg-white
+}

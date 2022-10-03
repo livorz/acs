@@ -1,11 +1,16 @@
-import { Line } from 'react-chartjs-2';
-import {
-    Chart as ChartJS,
-    LinearScale,
-    CategoryScale,
-    PointElement,
-    LineElement,
-  } from 'chart.js';
+
+  import "../dashboard/DashboardStyle.css";
+  import { Line } from 'react-chartjs-2';
+  import {
+      Chart as ChartJS,
+      LinearScale,
+      CategoryScale,
+      PointElement,
+      LineElement,
+    } from 'chart.js';
+    
+  //style for charts
+  import "../dashboard/ChartsStyles.css"
 
   ChartJS.register(
     LineElement,
@@ -13,8 +18,9 @@ import {
     LinearScale,
     PointElement,
   )
+ 
 
-  function LivesWithFamIncome () {
+  function LivesWith () {
     const data = {
         labels: ["May 12", "May 13", "May 14", "May 15"],
         datasets: [{
@@ -24,12 +30,15 @@ import {
           pointBordercolor: 'cyan',
           pointBorderWith: 4,
           tension: 0.5,
+          
         }]
       };
         const options = {
           plugins: {
             legend: false,
           },
+          responsive: true,
+          maintainAspectRatio: false,
           scales: {
             x:{
               grid:{
@@ -47,10 +56,10 @@ import {
           }
         };
         return(
-            <div style = {{width: '60%', height: '1px', marginLeft:'0px'}}>
+            <div className = "Income-Chart">
                 <Line data={data} options={options}/>  
             </div>
         );
   }
 
-  export default LivesWithFamIncome;
+  export default LivesWith;

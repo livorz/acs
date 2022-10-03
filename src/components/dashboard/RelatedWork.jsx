@@ -1,37 +1,37 @@
 import React from 'react';
 import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
+    Chart as ChartJS,
+    RadialLinearScale,
+    ArcElement,
+    Tooltip,
+    Legend,
 } from 'chart.js';
-import { Bar } from 'react-chartjs-2';
+import { PolarArea } from 'react-chartjs-2';
 
 //style for charts
 import "../dashboard/ChartsStyles.css"
 
 ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
+    RadialLinearScale, 
+    ArcElement, 
+    Tooltip, 
+    Legend
 );
 
 
-  function HighschoolsChart () {
+  function RelatedWork () {
     const data = {
         labels: ["May 12", "May 13", "May 14", "May 15"],
         datasets: [{
           data: [5,3,4,1],
-          backgroundColor: 'cyan',
-          borderColor: 'cyan',
-          pointBordercolor: 'cyan',
-          pointBorderWith: 4,
+          backgroundColor: ['#ADF7B6',
+                            '#A0CED9',
+                            '#FCF5C7',
+                            '#FFEE93',
+                            '#FFC09F'],
+          borderColor: 'transparent',
+          pointBordercolor: 'transparent',
+          pointBorderWith: 1,
           tension: 0.5,
         }]
       };
@@ -59,9 +59,9 @@ ChartJS.register(
         };
         return(
             <div className = "Income-Chart">
-                <Bar data={data} options={options}/>  
+                <PolarArea data={data} options={options}/>  
             </div>
         );
   }
 
-  export default HighschoolsChart;
+  export default RelatedWork;
