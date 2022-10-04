@@ -3,12 +3,13 @@ import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
-  BarElement,
+  PointElement,
+  LineElement,
   Title,
   Tooltip,
   Legend,
 } from 'chart.js';
-import { Bar } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
 
 //style for charts
 import "../dashboard/ChartsStyles.css"
@@ -16,7 +17,8 @@ import "../dashboard/ChartsStyles.css"
 ChartJS.register(
   CategoryScale,
   LinearScale,
-  BarElement,
+  PointElement,
+  LineElement,
   Title,
   Tooltip,
   Legend
@@ -59,7 +61,7 @@ ChartJS.register(
         };
         return(
             <div className = "Highschools-Chart">
-                <Bar data={data} options={options}/>  
+                <Line data={data} options={options}/>  
             </div>
         );
   }

@@ -135,8 +135,10 @@ import "../dashboard/DashboardStyle.css";
 						</div>
 						<FamilyIncome/>
 					</div>
-				<div className="box-w-chart row-span-2 col-span-3">
+				<div className="box-w-chart Bachilleratos">
+					<div className="Bachilleratos-Text">
 						Bachilleratos
+					</div>
 						<HighschoolsChart/> 
 				</div>
 		</div>

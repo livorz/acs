@@ -13,21 +13,24 @@
 .LivesWith-Chart{
     @apply
         h-4/6
-        w-full
+        w-11/12
         relative
         mt-4
+        ml-14
 }
 .Family-Income-Chart{
     @apply
         h-4/6
-        w-full
+        w-11/12
         relative
         mt-4
+        ml-14
 }
 .Highschools-Chart{
     @apply
         h-4/6
-        w-full
+        w-11/12
         relative
         mt-4
+        ml-14
 }

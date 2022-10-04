@@ -1,21 +1,25 @@
 import React from 'react';
 import {
-    Chart as ChartJS,
-    RadialLinearScale,
-    ArcElement,
-    Tooltip,
-    Legend,
+  Chart as ChartJS,
+  RadialLinearScale,
+  PointElement,
+  LineElement,
+  Filler,
+  Tooltip,
+  Legend,
 } from 'chart.js';
-import { PolarArea } from 'react-chartjs-2';
+import { Radar } from 'react-chartjs-2';
 
 //style for charts
 import "../dashboard/ChartsStyles.css"
 
 ChartJS.register(
-    RadialLinearScale, 
-    ArcElement, 
-    Tooltip, 
-    Legend
+  RadialLinearScale,
+  PointElement,
+  LineElement,
+  Filler,
+  Tooltip,
+  Legend
 );
 
 
@@ -59,7 +63,7 @@ ChartJS.register(
         };
         return(
             <div className = "RelatedWork-Chart">
-                <PolarArea data={data} options={options}/>  
+                <Radar data={data} options={options}/>  
             </div>
         );
   }

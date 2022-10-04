@@ -1,23 +1,31 @@
 
   import "../dashboard/DashboardStyle.css";
-  import { Line } from 'react-chartjs-2';
   import {
-      Chart as ChartJS,
-      LinearScale,
-      CategoryScale,
-      PointElement,
-      LineElement,
-    } from 'chart.js';
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Filler,
+    Legend,
+  } from 'chart.js';
+  import { Line } from 'react-chartjs-2';
     
   //style for charts
   import "../dashboard/ChartsStyles.css"
 
   ChartJS.register(
-    LineElement,
     CategoryScale,
     LinearScale,
     PointElement,
-  )
+    LineElement,
+    Title,
+    Tooltip,
+    Filler,
+    Legend
+  );
  
 
   function LivesWith () {
@@ -25,8 +33,9 @@
         labels: ["May 12", "May 13", "May 14", "May 15"],
         datasets: [{
           data: [5,3,4,1],
-          backgroundColor: 'cyan',
-          borderColor: 'cyan',
+          fill: true,
+          backgroundColor: 'rgb(53, 162, 235)',
+          borderColor: 'rgba(53, 162, 235, 1)',
           pointBordercolor: 'cyan',
           pointBorderWith: 4,
           tension: 0.5,
