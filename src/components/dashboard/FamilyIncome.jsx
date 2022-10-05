@@ -1,7 +1,7 @@
 
   import "../dashboard/DashboardStyle.css";
   import { Line } from 'react-chartjs-2';
-  import FetchFamilyData from "../../services/FamilyIncome";
+  
   import {
       Chart as ChartJS,
       LinearScale,
@@ -24,8 +24,7 @@ import { useEffect } from "react";
  
 
   function FamilyIncome () {
-
-    
+  
 
     const data = {
         labels: ["May 12", "May 13", "May 14", "May 15"],
@@ -64,7 +63,7 @@ import { useEffect } from "react";
         return(
             <div className = "Family-Income-Chart">
                 <Line data={data} options={options}/>  
-                <FetchFamilyData/>
+                
             </div>
         );
   }

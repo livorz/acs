@@ -22,12 +22,40 @@ import LivesWith from "./LivesWith";
 import WorkReason from "./WorkReason";
 import FamilyIncome from "./FamilyIncome";
 import RelatedWork from "./RelatedWork";
+//fetch
+import  {fetchFamilyData} from "../../services/FamilyIncome.js";
 //Styles
 import "../dashboard/DashboardStyle.css";
+import UseDashboard from "../hooks/useDashboard";
+
 
 
 	const Dashboard = () => {
 
+//fetchApi
+
+const {dashboard} = UseDashboard();
+
+const [ family, setFamily ] = useState();
+const [ gender, setGender ] = useState([]);
+const [ work, setWork ] = useState([]);
+const [ promTSU, setTSU ] = useState([]);
+const [ promtING, setING ] = useState([]);
+const [ reason, setReason ] = useState([]);
+const [ related, setRelated ] = useState([]);
+const [ highschools, setHighSchools ] = useState([]);
+const [ loading, setIsLoading ] = useState();
+
+	useEffect(()=>{
+		setFamily(dashboard.datosPersonales.ingresosFamiliares)
+		setGender(dashboard.datosPersonales.gender)
+		setReason(dashboard)
+		console.log(dashboard)
+	},[dashboard]);
+
+if (loading){
+	return <div></div>
+}
     return(
 		<div className="Main-Container">
 
@@ -43,7 +71,7 @@ import "../dashboard/DashboardStyle.css";
 										<FontAwesomeIcon icon={faPerson} className="KPI-Icon"/> 
 										</div>
 										<div className="KPI-Reading">
-										19
+										{gender[0].cantidad}
 										</div>	
 									</div>
 								</div>
@@ -121,7 +149,7 @@ import "../dashboard/DashboardStyle.css";
 				</div>
 				<div className="box-w-chart Reason-Related-Work">
 						<div>
-						Razson de Trabajo 
+						Razon de Trabajo 
 						<WorkReason/>
 						</div>
 						<div>
