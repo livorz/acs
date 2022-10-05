@@ -2,7 +2,7 @@ import React,{Fragment, useState, useEffect} from "react";
 //icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from "@fortawesome/fontawesome-svg-core"
-import { faPersonHalfDress, faPersonDress, faBriefcase, faGraduationCap, faUsers,  } from '@fortawesome/free-solid-svg-icons'
+import { faPersonHalfDress, faPerson, faPersonDress, faBriefcase, faGraduationCap, faUsers,faPersonSimple  } from '@fortawesome/free-solid-svg-icons'
 //charts
 import {	Chart as ChartJS,
 			CategoryScale, 
@@ -98,7 +98,8 @@ if (loading){
 										Mujeres & Hombres
 										</div>
 										<div className="KPI bg-cyan-500">
-										<FontAwesomeIcon icon={faPersonHalfDress} className="KPI-Icon"/> 
+										<FontAwesomeIcon icon={faPerson} className="KPI-Icon"/> 
+										<FontAwesomeIcon icon={faPersonDress} className="KPI-Icon m-5"/>
 										</div>
 										<div className="KPI-Reading">
 											<Gender gender={gender}/>

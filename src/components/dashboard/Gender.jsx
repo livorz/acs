@@ -37,11 +37,12 @@ ChartJS.register(
           data: genderMapped2,
           circumference: 60 * Math.PI,
           rotation: 84.6 * Math.PI,
-          backgroundColor: ['#ADF7B6',
-                            '#A0CED9',
-                            '#FCF5C7',
-                            '#FFEE93',
-                            '#FFC09F'],
+          backgroundColor: ['rgba(54, 162, 235, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)',],
           borderColor: 'transparent',
           pointBordercolor: 'transparent',
           pointBorderWith: 0,
@@ -50,25 +51,13 @@ ChartJS.register(
       };
         const options = {
           plugins: {
-            legend: false,
+            legend: {
+              position: 'right',
+            },
           },
           responsive: true,
           maintainAspectRatio: false,
-          scales: {
-            x:{
-              grid:{
-                display: false,
-              }
-            },
-            y:{
-              min: 2,
-              max: 10,
-              ticks:{
-                setSize: 2,
-                callback: (genderMapped2) => genderMapped2
-              },
-            }
-          }
+
         };
         return(
             <div className = "Gender-Chart">
