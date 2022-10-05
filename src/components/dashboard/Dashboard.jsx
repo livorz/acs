@@ -2,7 +2,7 @@ import React,{Fragment, useState, useEffect} from "react";
 //icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from "@fortawesome/fontawesome-svg-core"
-import { faPerson, faPersonDress, faBriefcase, faGraduationCap, faScroll } from '@fortawesome/free-solid-svg-icons'
+import { faPersonHalfDress, faPersonDress, faBriefcase, faGraduationCap, faUsers,  } from '@fortawesome/free-solid-svg-icons'
 //charts
 import {	Chart as ChartJS,
 			CategoryScale, 
@@ -22,8 +22,9 @@ import LivesWith from "./LivesWith";
 import WorkReason from "./WorkReason";
 import FamilyIncome from "./FamilyIncome";
 import RelatedWork from "./RelatedWork";
+import Gender from "../dashboard/Gender";
 //fetch
-import  {fetchFamilyData} from "../../services/FamilyIncome.js";
+import  {fetchAll} from "../../services/Data.js";
 //Styles
 import "../dashboard/DashboardStyle.css";
 import UseDashboard from "../hooks/useDashboard";
@@ -37,20 +38,35 @@ import UseDashboard from "../hooks/useDashboard";
 const {dashboard} = UseDashboard();
 
 const [ family, setFamily ] = useState();
+const [ genderF, setGenderF ] = useState([]);
+const [ genderM, setGenderM] = useState([]);
 const [ gender, setGender ] = useState([]);
-const [ work, setWork ] = useState([]);
+const [ workSi, setWorkSi ] = useState([]);
+const [ workNo, setWorkNo ] = useState([]);
 const [ promTSU, setTSU ] = useState([]);
 const [ promtING, setING ] = useState([]);
 const [ reason, setReason ] = useState([]);
 const [ related, setRelated ] = useState([]);
 const [ highschools, setHighSchools ] = useState([]);
+const [ student, setStudent ] = useState([]);
+const [ civil, setCivil ] = useState([]);
 const [ loading, setIsLoading ] = useState();
 
+
 	useEffect(()=>{
-		setFamily(dashboard.datosPersonales.ingresosFamiliares)
-		setGender(dashboard.datosPersonales.gender)
-		setReason(dashboard)
-		console.log(dashboard)
+		setFamily(dashboard?.datosPersonales?.ingresosFamiliares)
+		setGenderM(dashboard?.datosPersonales?.genero[0]?.cantidad)
+		setGenderF(dashboard?.datosPersonales?.genero[1]?.cantidad)
+		setGender(dashboard?.datosPersonales?.genero)
+		setWorkSi(dashboard?.datosLaborales?.trabajan.si)
+		setWorkNo(dashboard?.datosLaborales?.trabajan.no)
+		setTSU(dashboard?.promedios?.tsu?.promedio)
+		setING(dashboard?.promedios?.ingenieria.promedio)
+		setReason(dashboard?.datosLaborales?.razonTrabaja)
+		setStudent(dashboard?.alumnos)
+
+
+		console.log(dashboard?.datosLaborales?.razonTrabaja)
 	},[dashboard]);
 
 if (loading){
@@ -63,80 +79,74 @@ if (loading){
 				<div className="flex justify-center space-x-10">
 
 								<div className="item">
-									<div className="box KPI-Text">
+								<div className="box KPI-Text">
 										<div>
-										Hombres
+										Total Alumnos
 										</div>
 										<div className="KPI bg-cyan-500">
-										<FontAwesomeIcon icon={faPerson} className="KPI-Icon"/> 
+										<FontAwesomeIcon icon={faUsers} className="KPI-Icon"/> 
 										</div>
 										<div className="KPI-Reading">
-										{gender[0].cantidad}
+										{student}
 										</div>	
 									</div>
 								</div>
 								
 								<div className="item">
+									<div className="box KPI-Text">
+										<div>
+										Mujeres & Hombres
+										</div>
+										<div className="KPI bg-cyan-500">
+										<FontAwesomeIcon icon={faPersonHalfDress} className="KPI-Icon"/> 
+										</div>
+										<div className="KPI-Reading">
+											<Gender gender={gender}/>
+										
+										</div>	
+									</div>
+								</div>
 
-										<div className="box KPI-Text">
+									<div className="item">
+									<div className="box KPI-Text">
 											<div>
-											Mujeres
+											Estado Civil
 											</div>
 											<div className="KPI bg-red-400"> 
 											<FontAwesomeIcon icon={faPersonDress} className="KPI-Icon"/>
 											</div>
 											<div className="KPI-Reading">
-											19
 											</div>
-										
+										</div>
 									</div>
-								</div>
 
 								<div className="item">
-
-										<div className="box KPI-Text">
+								<div className="box KPI-Text">
 											<div>
-											Trabajan
+											Trabajan & No Trabajan
 											</div>
 											<div className="KPI bg-teal-500"> 
 											<FontAwesomeIcon icon={ faBriefcase } className="KPI-Icon"/>
 											</div>
 											<div className="KPI-Reading">
-											19
+											{workSi} / {workNo}
 											</div>
-
-									</div>
-								</div>
-
-								<div className="item">
-
-										<div className="box KPI-Text">
-											<div>
-											Promedio TSU
-											</div>
-											<div className="KPI bg-indigo-500"> 
-											<FontAwesomeIcon icon={ faScroll } className="KPI-Icon"/>
-											</div>
-											<div className="KPI-Reading">
-												19
-											</div>
-										
-									</div>
+										</div>
 								</div>
 								
 								<div className="item">
 									
 										<div className="box KPI-Text">
 											<div>
-											Promedio Ing
+											Promedio TSU & ING
 											</div>
-											<div className="KPI bg-purple-500"> 
+											<div className="KPI bg-indigo-500"> 
 												<FontAwesomeIcon icon={ faGraduationCap } className="KPI-Icon"/>
 											</div>
 											<div className="KPI-Reading">
-												19
+												{promTSU} / {promtING}
 											</div>
-									</div>
+										</div>
 								</div>
 				</div>
 				</div>
@@ -150,18 +160,18 @@ if (loading){
 				<div className="box-w-chart Reason-Related-Work">
 						<div>
 						Razon de Trabajo 
-						<WorkReason/>
+						<WorkReason reason={reason}/>
 						</div>
 						<div>
 						Trabajo Relacionado
-						<RelatedWork/>
+						<RelatedWork />
 						</div>
 				</div>
 				<div className="box-w-chart Family-Income">
 						<div className="Family-Income-Text">
 						Ingresos Familiares
 						</div>
-						<FamilyIncome/>
+						<FamilyIncome />
 					</div>
 				<div className="box-w-chart Bachilleratos">
 					<div className="Bachilleratos-Text">

@@ -23,7 +23,11 @@ ChartJS.register(
 );
 
 
-  function RelatedWork () {
+  const RelatedWork = () => {
+
+
+
+
     const data = {
         labels: ["May 12", "May 13", "May 14", "May 15"],
         datasets: [{

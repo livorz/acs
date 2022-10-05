@@ -109,7 +109,7 @@
 	@apply
 		text-right
 		mr-2
-		text-4xl
+		text-3xl
 		font-semibold;
 }
 .KPI-Text{
@@ -124,8 +124,8 @@
 		bg-transparent
 		text-slate-600 
 		align-middle
-		text-5xl 
-		mt-1
+		text-4xl 
+		mt-3
 		p-5
 		absolute;
 }

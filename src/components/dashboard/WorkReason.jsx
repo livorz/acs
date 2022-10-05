@@ -19,11 +19,22 @@ ChartJS.register(
 );
 
 
-  function WorkReason () {
+  const WorkReason = ({reason}) => {
+
+
+    const reasonMapped = reason?.map(s => s.descripcion)
+    console.log(reasonMapped);
+
+    const reasonMapped2 = reason?.map(s => s.cantidad)
+    console.log(reasonMapped2);
+
+
+
+
     const data = {
-        labels: ["May 12", "May 13", "May 14", "May 15"],
+        labels: reasonMapped,
         datasets: [{
-          data: [5,3,4,1],
+          data: reasonMapped2,
           backgroundColor: ['#ADF7B6',
                             '#A0CED9',
                             '#FCF5C7',
@@ -52,7 +63,7 @@ ChartJS.register(
               max: 10,
               ticks:{
                 setSize: 2,
-                callback: (value) => value + 'K'
+                callback: (reasonMapped2) => reasonMapped2
               },
             }
           }

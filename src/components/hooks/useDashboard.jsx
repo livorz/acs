@@ -1,20 +1,20 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import { fetchFamilyData } from "../../services/FamilyIncome";
+import { fetchAll } from "../../services/Data";
 
 const UseDashboard = () => {
     const [dashboard, setDashboard] = useState();
 
-    const chargeFamily = async() =>{
+    const loadCharts = async() =>{
 		try {
-      		const fillCharts = await fetchFamilyData()
+      		const fillCharts = await fetchAll()
 			setDashboard(fillCharts.estadisticas);
 		}
 		catch(err){console.log(err)}
     }
 
     useEffect(()=>{
-        chargeFamily();
+        loadCharts();
     },[])
     
     return {
