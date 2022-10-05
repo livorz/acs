@@ -23,24 +23,34 @@ ChartJS.register(
 );
 
 
-  const RelatedWork = () => {
+  const RelatedWork = ({related}) => {
 
-
+   
 
 
     const data = {
-        labels: ["May 12", "May 13", "May 14", "May 15"],
+        labels: ["Si", "No"],
         datasets: [{
-          data: [5,3,4,1],
-          backgroundColor: ['#ADF7B6',
-                            '#A0CED9',
-                            '#FCF5C7',
-                            '#FFEE93',
-                            '#FFC09F'],
-          borderColor: 'transparent',
-          pointBordercolor: 'transparent',
+          data: [20, 10],
+          backgroundColor: ['rgb(64, 96, 255, 0.6)',
+          'rgb(157, 96, 239, 0.6)',
+          'rgb(205, 101, 222, 0.6)',
+          'rgb(236, 115, 206, 0.6)',
+          'rgb(255, 135, 195, 0.6)',],
+          borderColor: ['rgb(64, 96, 255, 0.6)',
+          'rgb(157, 96, 239, 0.6)',
+          'rgb(205, 101, 222, 0.6)',
+          'rgb(236, 115, 206, 0.6)',
+          'rgb(255, 135, 195, 0.6)',],
+          pointBordercolor: ['rgb(64, 96, 255, 0.6)',
+          'rgb(157, 96, 239, 0.6)',
+          'rgb(205, 101, 222, 0.6)',
+          'rgb(236, 115, 206, 0.6)',
+          'rgb(255, 135, 195, 0.6)',],
           pointBorderWith: 1,
-          tension: 0.5,
+          tension: 1,
+          pointBorderWith: 1,
+          tension: 0,
         }]
       };
         const options = {
@@ -56,11 +66,11 @@ ChartJS.register(
               }
             },
             y:{
-              min: 2,
-              max: 10,
+              min: 0,
+              max: 40,
               ticks:{
                 setSize: 2,
-                callback: (value) => value + 'K'
+                callback: (value) => value
               },
             }
           }

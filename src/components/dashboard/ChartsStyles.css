@@ -1,7 +1,7 @@
 .WorkReason-Chart{
     @apply
-        h-52
-        w-72
+        h-4/6
+        w-11/12
         relative
 }
 .RelatedWork-Chart{
@@ -37,8 +37,27 @@
 .Gender-Chart{
     @apply
         h-20
-        w-9/12
+        w-6/12
         relative
-        mb-4
-        ml-14
+        bottom-2
+        ml-20
+        pr-4
+}
+.Civil-Chart{
+    @apply
+        h-20
+        w-6/12
+        relative
+        bottom-2
+        ml-20
+        pr-4
+}
+.Total-Student-Chart{
+    @apply
+        h-20
+        w-6/12
+        relative
+        bottom-2
+        ml-20
+        pr-4
 }

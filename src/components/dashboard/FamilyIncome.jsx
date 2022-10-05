@@ -1,38 +1,64 @@
 
   import "../dashboard/DashboardStyle.css";
-  import { Line } from 'react-chartjs-2';
-  
+  import { Bar } from 'react-chartjs-2';
   import {
-      Chart as ChartJS,
-      LinearScale,
-      CategoryScale,
-      PointElement,
-      LineElement,
-    } from 'chart.js';
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend,
+  } from 'chart.js';
     
   //style for charts
   import "../dashboard/ChartsStyles.css"
-import axios from "axios";
-import { useEffect } from "react";
+
 
   ChartJS.register(
-    LineElement,
     CategoryScale,
     LinearScale,
-    PointElement,
-  )
+    BarElement,
+    Title,
+    Tooltip,
+    Legend
+  );
  
 
-  function FamilyIncome () {
+
   
 
+    const FamilyIncome = ({income}) =>{
+
+      const incomeMapped = income?.map(s => s.descripcion);
+      console.log(incomeMapped);
+
+      const incomeMapped2 = income?.map(s => s.cantidad);
+      console.log(incomeMapped2);
+
+    
+
+
     const data = {
-        labels: ["May 12", "May 13", "May 14", "May 15"],
+        labels: incomeMapped,
         datasets: [{
-          data: [5,3,4,1],
-          backgroundColor: 'cyan',
-          borderColor: 'cyan',
-          pointBordercolor: 'cyan',
+          data: incomeMapped2,
+          fill: true,
+          backgroundColor: ['rgb(64, 96, 255, 0.6)',
+          'rgb(157, 96, 239, 0.6)',
+          'rgb(205, 101, 222, 0.6)',
+          'rgb(236, 115, 206, 0.6)',
+          'rgb(255, 135, 195, 0.6)',],
+          borderColor: ['rgb(64, 96, 255, 0.6)',
+          'rgb(157, 96, 239, 0.6)',
+          'rgb(205, 101, 222, 0.6)',
+          'rgb(236, 115, 206, 0.6)',
+          'rgb(255, 135, 195, 0.6)',],
+          pointBordercolor: ['rgb(64, 96, 255, 0.6)',
+          'rgb(157, 96, 239, 0.6)',
+          'rgb(205, 101, 222, 0.6)',
+          'rgb(236, 115, 206, 0.6)',
+          'rgb(255, 135, 195, 0.6)',],
           pointBorderWith: 4,
           tension: 0.5,
           
@@ -51,18 +77,18 @@ import { useEffect } from "react";
               }
             },
             y:{
-              min: 2,
-              max: 10,
+              min: 0,
+              max: 40,
               ticks:{
                 setSize: 2,
-                callback: (value) => value + 'K'
+                callback: (incomeMapped2) => incomeMapped2
               },
             }
           }
         };
         return(
             <div className = "Family-Income-Chart">
-                <Line data={data} options={options}/>  
+                <Bar data={data} options={options}/>  
                 
             </div>
         );

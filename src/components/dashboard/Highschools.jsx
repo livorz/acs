@@ -3,13 +3,12 @@ import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
-  PointElement,
-  LineElement,
+  BarElement,
   Title,
   Tooltip,
   Legend,
 } from 'chart.js';
-import { Line } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 
 //style for charts
 import "../dashboard/ChartsStyles.css"
@@ -17,22 +16,46 @@ import "../dashboard/ChartsStyles.css"
 ChartJS.register(
   CategoryScale,
   LinearScale,
-  PointElement,
-  LineElement,
+  BarElement,
   Title,
   Tooltip,
   Legend
 );
 
 
-  function HighschoolsChart () {
+  const HighschoolsChart = ({highschools}) => {
+
+
+    const highschoolsMapped = highschools?.map(s => s.descripcion)
+    console.log(highschoolsMapped);
+
+    
+    const highschoolsMapped2 = highschools?.map(s => s.cantidad)
+    console.log(highschoolsMapped2);
+
+
     const data = {
-        labels: ["May 12", "May 13", "May 14", "May 15"],
+        labels: highschoolsMapped,
         datasets: [{
-          data: [5,3,4,1],
-          backgroundColor: 'cyan',
-          borderColor: 'cyan',
-          pointBordercolor: 'cyan',
+          data: highschoolsMapped2,
+          fill:true,
+          backgroundColor: ['rgb(64, 96, 255, 0.6)',
+          'rgb(157, 96, 239, 0.6)',
+          'rgb(205, 101, 222, 0.6)',
+          'rgb(236, 115, 206, 0.6)',
+          'rgb(255, 135, 195, 0.6)',],
+          borderColor: ['rgb(64, 96, 255, 0.6)',
+          'rgb(157, 96, 239, 0.6)',
+          'rgb(205, 101, 222, 0.6)',
+          'rgb(236, 115, 206, 0.6)',
+          'rgb(255, 135, 195, 0.6)',],
+          pointBordercolor: ['rgb(64, 96, 255, 0.6)',
+          'rgb(157, 96, 239, 0.6)',
+          'rgb(205, 101, 222, 0.6)',
+          'rgb(236, 115, 206, 0.6)',
+          'rgb(255, 135, 195, 0.6)',],
+          pointBorderWith: 4,
+          tension: 0.5,
           pointBorderWith: 4,
           tension: 0.5,
         }]
@@ -50,18 +73,18 @@ ChartJS.register(
               }
             },
             y:{
-              min: 2,
-              max: 10,
+              min: 0,
+              max: 15,
               ticks:{
                 setSize: 2,
-                callback: (value) => value + 'K'
+                callback: (highschoolsMapped2) => highschoolsMapped2
               },
             }
           }
         };
         return(
             <div className = "Highschools-Chart">
-                <Line data={data} options={options}/>  
+                <Bar data={data} options={options}/>  
             </div>
         );
   }

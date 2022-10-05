@@ -1,21 +1,25 @@
 import React from 'react';
 import {
-    Chart as ChartJS,
-    RadialLinearScale,
-    ArcElement,
-    Tooltip,
-    Legend,
+  Chart as ChartJS,
+  RadialLinearScale,
+  PointElement,
+  LineElement,
+  Filler,
+  Tooltip,
+  Legend,
 } from 'chart.js';
-import { PolarArea } from 'react-chartjs-2';
+import { Radar } from 'react-chartjs-2';
 
 //style for charts
 import "../dashboard/ChartsStyles.css"
 
 ChartJS.register(
-    RadialLinearScale, 
-    ArcElement, 
-    Tooltip, 
-    Legend
+  RadialLinearScale,
+  PointElement,
+  LineElement,
+  Filler,
+  Tooltip,
+  Legend
 );
 
 
@@ -35,13 +39,24 @@ ChartJS.register(
         labels: reasonMapped,
         datasets: [{
           data: reasonMapped2,
-          backgroundColor: ['#ADF7B6',
-                            '#A0CED9',
-                            '#FCF5C7',
-                            '#FFEE93',
-                            '#FFC09F'],
-          borderColor: 'transparent',
-          pointBordercolor: 'transparent',
+          fill: true,
+          backgroundColor: ['rgb(64, 96, 255, 0.6)',
+          'rgb(157, 96, 239, 0.6)',
+          'rgb(205, 101, 222, 0.6)',
+          'rgb(236, 115, 206, 0.6)',
+          'rgb(255, 135, 195, 0.6)',],
+          borderColor: ['rgb(64, 96, 255, 0.6)',
+          'rgb(157, 96, 239, 0.6)',
+          'rgb(205, 101, 222, 0.6)',
+          'rgb(236, 115, 206, 0.6)',
+          'rgb(255, 135, 195, 0.6)',],
+          pointBordercolor: ['rgb(64, 96, 255, 0.6)',
+          'rgb(157, 96, 239, 0.6)',
+          'rgb(205, 101, 222, 0.6)',
+          'rgb(236, 115, 206, 0.6)',
+          'rgb(255, 135, 195, 0.6)',],
+          pointBorderWith: 4,
+          tension: 0.5,
           pointBorderWith: 1,
           tension: 0.5,
         }]
@@ -59,8 +74,8 @@ ChartJS.register(
               }
             },
             y:{
-              min: 2,
-              max: 10,
+              min: 0,
+              max: 40,
               ticks:{
                 setSize: 2,
                 callback: (reasonMapped2) => reasonMapped2
@@ -70,7 +85,7 @@ ChartJS.register(
         };
         return(
             <div className = "WorkReason-Chart">
-                <PolarArea data={data} options={options}/>  
+                <Radar data={data} options={options}/>  
             </div>
         );
   }

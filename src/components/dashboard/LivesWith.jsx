@@ -4,14 +4,12 @@
     Chart as ChartJS,
     CategoryScale,
     LinearScale,
-    PointElement,
-    LineElement,
+    BarElement,
     Title,
     Tooltip,
-    Filler,
     Legend,
   } from 'chart.js';
-  import { Line } from 'react-chartjs-2';
+  import { Bar } from 'react-chartjs-2';
     
   //style for charts
   import "../dashboard/ChartsStyles.css"
@@ -19,24 +17,44 @@
   ChartJS.register(
     CategoryScale,
     LinearScale,
-    PointElement,
-    LineElement,
+    BarElement,
     Title,
     Tooltip,
-    Filler,
     Legend
   );
  
 
-  function LivesWith () {
+  const LivesWith = ({living}) => {
+
+    const livingMapped = living?.map( hue => hue.descripcion );
+    console.log( livingMapped );
+
+    const livingMapped2 = living?.map( hue => hue.cantidad );
+    console.log( livingMapped2 );
+
+
     const data = {
-        labels: ["May 12", "May 13", "May 14", "May 15"],
+        labels: livingMapped,
         datasets: [{
-          data: [5,3,4,1],
+          data: livingMapped2,
           fill: true,
-          backgroundColor: 'rgb(53, 162, 235)',
-          borderColor: 'rgba(53, 162, 235, 1)',
-          pointBordercolor: 'cyan',
+          backgroundColor: ['rgb(64, 96, 255, 0.6)',
+          '#9d60ef',
+          '#cd65de',
+          '#ec73ce',
+          '#ff87c3',],
+          borderColor: ['#4060ff',
+          '#9d60ef',
+          '#cd65de',
+          '#ec73ce',
+          '#ff87c3',],
+          pointBordercolor: ['#4060ff',
+          '#9d60ef',
+          '#cd65de',
+          '#ec73ce',
+          '#ff87c3',],
+          pointBorderWith: 4,
+          tension: 0.5,
           pointBorderWith: 4,
           tension: 0.5,
           
@@ -55,18 +73,18 @@
               }
             },
             y:{
-              min: 2,
-              max: 10,
+              min: 0,
+              max: 40,
               ticks:{
                 setSize: 2,
-                callback: (value) => value + 'K'
+                callback: (livingMapped2) => livingMapped2,
               },
             }
           }
         };
         return(
             <div className = "LivesWith-Chart">
-                <Line data={data} options={options}/>  
+                <Bar data={data} options={options}/>  
             </div>
         );
   }

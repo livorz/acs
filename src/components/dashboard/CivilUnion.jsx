@@ -19,22 +19,22 @@ ChartJS.register(
 );
 
 
-  const Gender = ({gender}) => {
+  const Civil = ({civil}) => {
 
 
-    const genderMapped = gender?.map(s => s.descripcion)
-    console.log(genderMapped);
+    const civilMapped = civil?.map(s => s.descripcion)
+    console.log(civilMapped);
 
-    const genderMapped2 = gender?.map(s => s.cantidad)
-    console.log(genderMapped2);
+    const civilMapped2 = civil?.map(s => s.cantidad)
+    console.log(civilMapped2);
 
 
 
 
     const data = {
-        labels: genderMapped,
+        labels: civilMapped,
         datasets: [{
-          data: genderMapped2,
+          data: civilMapped2,
           circumference: 57 * Math.PI,
           rotation: 86 * Math.PI,
           backgroundColor: ['rgb(64, 96, 255, 1)',
@@ -65,10 +65,10 @@ ChartJS.register(
 
         };
         return(
-            <div className = "Gender-Chart">
+            <div className = "Civil-Chart">
                 <Doughnut data={data} options={options}/>  
             </div>
         );
   }
 
-  export default Gender;
+  export default Civil;
